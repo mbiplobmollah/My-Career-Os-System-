@@ -1,0 +1,92 @@
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+
+:root {
+  /* ---- Typography ---- */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.625rem;
+  --fs-2xl: 2.125rem;
+  --fs-3xl: 2.75rem;
+
+  --lh-tight: 1.15;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  /* ---- Spacing ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* ---- Radius / borders ---- */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --border-w: 1px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-med: 220ms;
+
+  /* ---- Layout ---- */
+  --sidebar-w: 248px;
+  --topbar-h: 60px;
+  --content-max: 1180px;
+
+  /* ---- Accent hues (shared across themes) ---- */
+  --accent: #4FD1C5;
+  --accent-strong: #2FB8AB;
+  --info: #7C9EF2;
+  --success: #5FBF77;
+  --warning: #F2A93B;
+  --danger: #E5605A;
+  --purple: #B48EF0;
+}
+
+/* ---- Dark theme (default) ---- */
+:root,
+[data-theme="dark"] {
+  --bg: #0B0E14;
+  --bg-raised: #12151C;
+  --bg-panel: #161A22;
+  --bg-hover: #1D222C;
+  --border: #262B36;
+  --border-strong: #333A48;
+  --text-primary: #E7EAF0;
+  --text-secondary: #9AA3B4;
+  --text-tertiary: #626B7D;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --scrollbar: #2A3040;
+}
+
+/* ---- Light theme ---- */
+[data-theme="light"] {
+  --bg: #F5F6F8;
+  --bg-raised: #FFFFFF;
+  --bg-panel: #FFFFFF;
+  --bg-hover: #EEF0F3;
+  --border: #E1E4EA;
+  --border-strong: #CBD0D9;
+  --text-primary: #1A1E27;
+  --text-secondary: #565F70;
+  --text-tertiary: #8A93A3;
+  --shadow: 0 8px 24px rgba(20, 24, 33, 0.08);
+  --scrollbar: #D6DAE1;
+  --accent-strong: #128F82;
+}

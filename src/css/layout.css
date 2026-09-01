@@ -1,0 +1,175 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  grid-template-rows: var(--topbar-h) 1fr;
+  grid-template-areas:
+    "sidebar topbar"
+    "sidebar main";
+  min-height: 100vh;
+}
+
+/* ---- Sidebar ---- */
+.sidebar {
+  grid-area: sidebar;
+  background: var(--bg-raised);
+  border-right: var(--border-w) solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-5) 0;
+  overflow-y: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  padding: 0 var(--sp-5) var(--sp-5) var(--sp-5);
+  border-bottom: var(--border-w) solid var(--border);
+  margin-bottom: var(--sp-4);
+}
+
+.brand-mark {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 1px 5px;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-md);
+  color: var(--text-primary);
+}
+
+.nav-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  padding: var(--sp-4) var(--sp-5) var(--sp-1) var(--sp-5);
+  letter-spacing: 0.04em;
+}
+
+.nav-list { list-style: none; margin: 0; padding: 0; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 7px var(--sp-5);
+  margin: 0 var(--sp-2);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.nav-item:hover { background: var(--bg-hover); color: var(--text-primary); text-decoration: none; }
+
+.nav-item.active {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-left-color: var(--accent);
+}
+
+.nav-icon { width: 16px; text-align: center; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-tertiary); flex-shrink: 0; }
+.nav-item.active .nav-icon, .nav-item:hover .nav-icon { color: var(--accent); }
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: var(--sp-4) var(--sp-5) 0 var(--sp-5);
+  border-top: var(--border-w) solid var(--border);
+}
+
+/* ---- Top bar ---- */
+.topbar {
+  grid-area: topbar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--sp-6);
+  border-bottom: var(--border-w) solid var(--border);
+  background: var(--bg);
+  gap: var(--sp-4);
+}
+
+.topbar-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+.topbar-actions { display: flex; align-items: center; gap: var(--sp-3); }
+
+.search-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  background: var(--bg-raised);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 6px var(--sp-3);
+  color: var(--text-tertiary);
+  font-size: var(--fs-sm);
+  min-width: 220px;
+}
+
+.search-trigger kbd {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-left: auto;
+  color: var(--text-tertiary);
+}
+
+.icon-btn {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-raised);
+  border: var(--border-w) solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--fs-base);
+}
+.icon-btn:hover { color: var(--text-primary); border-color: var(--border-strong); }
+
+/* ---- Main content ---- */
+.main {
+  grid-area: main;
+  overflow-y: auto;
+  padding: var(--sp-8) var(--sp-8) var(--sp-16) var(--sp-8);
+}
+
+.page {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--sp-6);
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.page-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  margin-bottom: var(--sp-1);
+}
+
+.page-sub { color: var(--text-secondary); max-width: 640px; margin: var(--sp-1) 0 0 0; }
+
+.mobile-nav-toggle { display: none; }
+
+/* Mobile drawer overlay */
+.sidebar-overlay { display: none; }

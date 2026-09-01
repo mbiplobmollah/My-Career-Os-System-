@@ -1,18 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career OS</title>
-</head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Career OS</title>
+<meta name="description" content="A local-first, interactive operating system for a technical career roadmap." />
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="src/css/variables.css">
+<link rel="stylesheet" href="src/css/base.css">
+<link rel="stylesheet" href="src/css/layout.css">
+<link rel="stylesheet" href="src/css/components.css">
+<link rel="stylesheet" href="src/css/responsive.css">
+<link rel="stylesheet" href="src/css/print.css">
+</head>
 <body>
 
-    <h1>My Career OS</h1>
+<div class="app-shell">
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <p>
-        Learn → Practice → Build → Prove → Sell → Consult
-    </p>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="brand-mark">OS</span>
+      <span class="brand-name">Career OS</span>
+    </div>
+    <nav id="sidebar-nav"></nav>
+    <div class="sidebar-footer">
+      <p class="stat-label" style="margin-bottom:var(--sp-3)">LOCAL-FIRST · YOUR DATA STAYS HERE</p>
+    </div>
+  </aside>
 
+  <header class="topbar">
+    <div style="display:flex; align-items:center; gap:var(--sp-3)">
+      <button class="icon-btn mobile-nav-toggle" id="mobile-nav-btn" aria-label="Open navigation">☰</button>
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+    </div>
+    <div class="topbar-actions">
+      <div class="search-trigger" id="search-open-btn" role="button" tabindex="0" aria-label="Search">
+        <span>⌕</span><span>Search…</span><kbd>⌘K</kbd>
+      </div>
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">☾</button>
+    </div>
+  </header>
+
+  <main class="main" id="main"></main>
+</div>
+
+<script src="src/data/data.js"></script>
+<script src="src/js/state.js"></script>
+<script src="src/js/helpers.js"></script>
+<script src="src/js/pages.js"></script>
+<script src="src/js/app.js"></script>
+<script>
+  // Theme toggle button: flips between dark/light directly (separate from the
+  // explicit Dark/Light buttons on the Settings page, which set a specific theme).
+  document.getElementById('theme-btn').addEventListener('click', () => {
+    STATE.theme = STATE.theme === 'dark' ? 'light' : 'dark';
+    saveState();
+    applyTheme();
+    document.getElementById('theme-btn').textContent = STATE.theme === 'dark' ? '☾' : '☀';
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('theme-btn').textContent = STATE.theme === 'dark' ? '☾' : '☀';
+  });
+</script>
 </body>
 </html>

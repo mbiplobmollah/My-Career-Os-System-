@@ -1,0 +1,48 @@
+@media (max-width: 880px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "topbar"
+      "main";
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: min(280px, 82vw);
+    z-index: 150;
+    transform: translateX(-100%);
+    transition: transform var(--dur-med) var(--ease);
+    box-shadow: var(--shadow);
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(6,8,12,0.5);
+    z-index: 140;
+  }
+  .sidebar-overlay.open { display: block; }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  .search-trigger { min-width: 0; width: 34px; padding: 0; justify-content: center; }
+  .search-trigger span, .search-trigger kbd { display: none; }
+
+  .main { padding: var(--sp-5) var(--sp-4) var(--sp-12) var(--sp-4); }
+
+  .card-grid { grid-template-columns: 1fr; }
+
+  .modal-panel { width: 100vw; }
+
+  .topbar { padding: 0 var(--sp-4); }
+  .topbar-title { font-size: var(--fs-base); }
+}
+
+@media (max-width: 520px) {
+  .stat-num { font-size: var(--fs-xl); }
+  .page-header { flex-direction: column; align-items: flex-start; }
+}
